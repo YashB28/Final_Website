@@ -76,8 +76,8 @@ app.use((req, res, next) => {
   // Other ports are firewalled. Default to 5000 if not specified.
   // this serves both the API and the client.
   // It is the only port that is not firewalled.
-  // Use Railway's port if available, fallback to 8080, then 5000
-  const port = parseInt(process.env.PORT || '8080' || '5000', 10);
+  // Use Railway's port if available, fallback to 8080 for local development
+  const port = process.env.PORT ? parseInt(process.env.PORT, 10) : 8080;
   server.listen(port, () => {
     log(`serving on port ${port}`);
   });
