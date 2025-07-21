@@ -7,9 +7,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.get("/", (req, res) => {
-  res.send("Hello from Railway! Server is running.");
-});
+// Removed the custom root route to allow serveStatic to handle '/'
 
 app.use((req, res, next) => {
   const start = Date.now();
